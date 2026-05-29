@@ -1,0 +1,38 @@
+{
+  "nav": {
+    "about": "About",
+    "experience": "Experience",
+    "work": "Work",
+    "personalProjects": "Personal",
+    "contact": "Contact",
+    "resume": "Resume",
+    "letsTalk": "Let's Talk",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu"
+  },
+  "contactModal": {
+    "title": "Get in touch",
+    "subtitle": "Choose your preferred way to reach me.",
+    "email": "Email",
+    "emailCopy": "Copy address",
+    "emailCopied": "Copied!",
+    "emailSend": "Send email",
+    "whatsapp": "WhatsApp",
+    "linkedin": "LinkedIn",
+    "github": "GitHub"
+  },
+  "footer": {
+    "rights": "All rights reserved.",
+    "role": "Backend Java Engineer",
+    "specialization": "Backend Specialist"
+  },
+  "notFound": {
+    "title": "404",
+    "message": "Page not found. The page you're looking for doesn't exist.",
+    "back": "Back to Home"
+  },
+  "meta": {
+    "title": "Gabriel França — Backend Java Engineer | Backend Specialist",
+    "description": "Backend Java Engineer specializing in scalable backend systems, distributed architectures, and high-performance solutions with Java, Spring Boot, and AWS."
+  }
+}

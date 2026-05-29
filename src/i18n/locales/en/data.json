@@ -1,0 +1,78 @@
+{
+  "experience": [
+    {
+      "role": "Software Engineer & DevOps",
+      "company": "Porto de Suape",
+      "type": "Hybrid",
+      "location": "Pernambuco, Brazil",
+      "startDate": "2025-12",
+      "endDate": "2026-05",
+      "points": [
+        "Architected and developed a Terminal Operating System (TOS) using microservices architecture with Golang, Apache Kafka, and MQTT on GCP, processing real-time bathymetry data for automated docking alerts.",
+        "Designed API integrations for port control systems, ensuring data interoperability between operational management and hardware/sensors.",
+        "Developed and refactored corporate ERP system modules using Java (Spring Framework), ensuring stability in the production environment.",
+        "Created Python automation scripts for systemic and operational routines, eliminating manual processes."
+      ]
+    },
+    {
+      "role": "Software Engineering Intern",
+      "company": "SENAC",
+      "type": "Hybrid",
+      "location": "Pernambuco, Brazil",
+      "startDate": "2026-05",
+      "endDate": null,
+      "points": [
+        "Participated in the full lifecycle development of corporate systems, from requirements analysis to deployment, using DDD architecture.",
+        "Developed systems for data collection, feedback management, and management dashboards.",
+        "Worked with the technology stack: MongoDB, React.js, and Node.js."
+      ]
+    },
+    {
+      "role": "Software Engineering Intern",
+      "company": "Recife City Hall (Department of Education)",
+      "type": "On-site",
+      "location": "Recife, Brazil",
+      "startDate": "2025-06",
+      "endDate": null,
+      "points": [
+        "Modeled and administered the educational sector's relational database (SQL), optimizing table structures for complex queries on a large scale.",
+        "Applied Software Engineering patterns (OOP, SOLID, Clean Code) to reduce technical debt and facilitate long-term code maintenance."
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "title": "Terminal Operating System (TOS) - Suape",
+      "description": "Development of the TOS using microservices architecture, integrating real-time bathymetry data for port automation",
+      "company": "Porto de Suape",
+      "color": "text-emerald-400",
+      "tags": ["Golang", "Apache Kafka", "MQTT", "GCP", "Microservices"],
+      "new": true
+    },
+    {
+      "title": "CPA 2026 SENAC — Frontend",
+      "description": "Institutional evaluation interface for SENAC's CPA, enabling students to evaluate professors, courses, and infrastructure with dynamic and responsive forms",
+      "company": "SENAC",
+      "color": "text-cyan-400",
+      "tags": ["React.js", "Vite", "i18n", "UI/UX"],
+      "new": true
+    },
+    {
+      "title": "CPA Dashboard",
+      "description": "Management dashboard for CPA data analysis, featuring interactive charts, filters by course/unit, and performance indicators to support decision-making",
+      "company": "SENAC",
+      "color": "text-purple-400",
+      "tags": ["React.js", "Charts", "Analytics", "Dashboard"],
+      "new": true
+    },
+    {
+      "title": "CPA 2026 SENAC — Backend",
+      "description": "RESTful API for the SENAC CPA system built with DDD (Domain-Driven Design) architecture, managing evaluations, JWT authentication, CSV data import, and statistical report generation",
+      "company": "SENAC",
+      "color": "text-emerald-400",
+      "tags": ["Node.js", "MongoDB", "JWT", "REST API", "DDD"],
+      "new": true
+    }
+  ],
+  "personalProjects": []
+}

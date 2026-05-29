@@ -1,0 +1,38 @@
+{
+  "nav": {
+    "about": "Sobre",
+    "experience": "Experiência",
+    "work": "Projetos",
+    "personalProjects": "Pessoais",
+    "contact": "Contato",
+    "resume": "Currículo",
+    "letsTalk": "Fale Comigo",
+    "openMenu": "Abrir menu",
+    "closeMenu": "Fechar menu"
+  },
+  "contactModal": {
+    "title": "Entre em contato",
+    "subtitle": "Escolha a melhor forma de falar comigo.",
+    "email": "E-mail",
+    "emailCopy": "Copiar endere\u00e7o",
+    "emailCopied": "Copiado!",
+    "emailSend": "Enviar e-mail",
+    "whatsapp": "WhatsApp",
+    "linkedin": "LinkedIn",
+    "github": "GitHub"
+  },
+  "footer": {
+    "rights": "Todos os direitos reservados.",
+    "role": "Desenvolvedor Backend Java",
+    "specialization": "Especialista Backend"
+  },
+  "notFound": {
+    "title": "404",
+    "message": "Página não encontrada. A página que você procura não existe.",
+    "back": "Voltar ao Início"
+  },
+  "meta": {
+    "title": "Gabriel França — Desenvolvedor Backend Java | Especialista Backend",
+    "description": "Desenvolvedor Backend Java especializado em sistemas backend escaláveis, arquiteturas distribuídas e soluções de alta performance com Java, Spring Boot e AWS."
+  }
+}

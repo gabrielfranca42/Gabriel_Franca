@@ -1,0 +1,8 @@
+# Bloquear indexação via HTTP (sem SSL)
+User-agent: *
+Disallow:
+
+# Permitir apenas HTTPS com www
+Host: https://www.thiagodiogo.com
+
+Sitemap: https://www.thiagodiogo.com/sitemap.xml

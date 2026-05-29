@@ -1,0 +1,78 @@
+{
+  "experience": [
+    {
+      "role": "Desenvolvedor de Software e DevOps",
+      "company": "Porto de Suape",
+      "type": "Híbrido",
+      "location": "Pernambuco, Brasil",
+      "startDate": "2025-12",
+      "endDate": "2026-05",
+      "points": [
+        "Arquitetei e desenvolvi um Terminal Operating System (TOS) em arquitetura de microsserviços utilizando Golang, Apache Kafka e MQTT na infraestrutura GCP, processando dados de batimetria em tempo real para automação de alertas de atracação.",
+        "Projetei integrações via APIs para sistemas de controle portuário, garantindo a interoperabilidade de dados entre a camada de gestão operacional e hardware/sensores.",
+        "Desenvolvi e refatorei módulos do sistema ERP corporativo utilizando Java (Spring Framework), assegurando estabilidade em ambiente de produção.",
+        "Criei scripts de automação em Python para integração de rotinas sistêmicas e operacionais, eliminando processos manuais."
+      ]
+    },
+    {
+      "role": "Estagiário em Desenvolvimento de Software",
+      "company": "SENAC",
+      "type": "Híbrido",
+      "location": "Pernambuco, Brasil",
+      "startDate": "2026-05",
+      "endDate": null,
+      "points": [
+        "Atuo no desenvolvimento completo de sistemas corporativos (ciclo de vida completo), desde a análise de requisitos até a implantação, utilizando arquitetura DDD.",
+        "Desenvolvo sistemas de coleta e gerenciamento de feedbacks e dashboards gerenciais.",
+        "Trabalho com stack tecnológica: MongoDB, React.js e Node.js."
+      ]
+    },
+    {
+      "role": "Estagiário em Desenvolvimento de Software",
+      "company": "Prefeitura do Recife (Secretaria de Educação)",
+      "type": "Presencial",
+      "location": "Recife, Brasil",
+      "startDate": "2025-06",
+      "endDate": null,
+      "points": [
+        "Modelei e administrei banco de dados relacional (SQL) do setor educacional, otimizando a estruturação de tabelas para consultas complexas em larga escala.",
+        "Apliquei padrões de Engenharia de Software (POO, SOLID, Clean Code) para reduzir débito técnico e facilitar a manutenção do código."
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "title": "Terminal Operating System (TOS) - Suape",
+      "description": "Desenvolvimento do TOS em arquitetura de microsserviços, integrando dados de batimetria em tempo real para automação de portos",
+      "company": "Porto de Suape",
+      "color": "text-emerald-400",
+      "tags": ["Golang", "Apache Kafka", "MQTT", "GCP", "Microservices"],
+      "new": true
+    },
+    {
+      "title": "CPA 2026 SENAC — Frontend",
+      "description": "Interface de avaliação institucional CPA do SENAC, permitindo que alunos avaliem professores, disciplinas e infraestrutura com formulários dinâmicos e responsivos",
+      "company": "SENAC",
+      "color": "text-cyan-400",
+      "tags": ["React.js", "Vite", "i18n", "UI/UX"],
+      "new": true
+    },
+    {
+      "title": "CPA Dashboard",
+      "description": "Dashboard gerencial para análise dos dados da CPA, com gráficos interativos, filtros por curso/unidade e indicadores de desempenho para suporte à tomada de decisão",
+      "company": "SENAC",
+      "color": "text-purple-400",
+      "tags": ["React.js", "Charts", "Analytics", "Dashboard"],
+      "new": true
+    },
+    {
+      "title": "CPA 2026 SENAC — Backend",
+      "description": "API RESTful para o sistema CPA do SENAC com arquitetura DDD (Domain-Driven Design), gerenciando avaliações, autenticação JWT, importação de dados via CSV e geração de relatórios estatísticos",
+      "company": "SENAC",
+      "color": "text-emerald-400",
+      "tags": ["Node.js", "MongoDB", "JWT", "REST API", "DDD"],
+      "new": true
+    }
+  ],
+  "personalProjects": []
+}

@@ -1,0 +1,193 @@
+================================================================================
+ SEO AUDIT — Portfolio Thiago Diogo
+ Domínio: https://www.thiagodiogo.com
+ Última atualização: 01/04/2026
+================================================================================
+
+STATUS ATUAL: O que já está bom
+────────────────────────────────
+✅ <html lang="en"> — idioma definido
+✅ <title> e <meta description> presentes
+✅ Open Graph tags (og:title, og:description, og:image, og:type)
+✅ favicon.svg configurado
+✅ robots.txt permitindo indexação com Host e Sitemap definidos
+✅ sitemap.xml criado com URL https://www.thiagodiogo.com/
+✅ Google Fonts com preconnect e display=swap (boa performance)
+✅ HTML semântico: <nav>, <main>, <section>, <footer>
+✅ Hierarquia de headings correta: h1 no hero, h2 nas seções, h3 nos cards
+✅ <ul>/<li> usado para listar pontos de experiência
+✅ Cache de assets com hash (immutable) no vercel.json
+✅ SPA rewrite configurado no vercel.json
+✅ Redirect non-www → www (permanent) no vercel.json
+✅ Links sociais com URLs reais (LinkedIn + GitHub no hero.tsx)
+✅ Botão "Get in touch" como <a> com link real (contact.tsx)
+✅ Página 404 com mensagem amigável, link para home, tema dark consistente
+✅ Nav mobile com hamburger menu e aria-label no botão
+✅ Viewport sem maximum-scale (permite zoom, acessível)
+✅ Sitemap.xml servido com Content-Type: application/xml no vercel.json
+
+
+================================================================================
+PROBLEMAS CRÍTICOS (impactam SEO diretamente)
+================================================================================
+
+1. NÃO TEM CANONICAL URL
+   ─ Adicionar no index.html: <link rel="canonical" href="https://www.thiagodiogo.com/" />
+   ─ Evita conteúdo duplicado se acessarem via trailing slash, deploy previews, etc.
+
+2. META OG:URL AUSENTE
+   ─ Adicionar: <meta property="og:url" content="https://www.thiagodiogo.com/" />
+   ─ Necessário para compartilhamento correto em redes sociais
+
+3. TWITTER CARD TAGS AUSENTES
+   ─ Adicionar:
+     <meta name="twitter:card" content="summary_large_image" />
+     <meta name="twitter:title" content="Thiago Diogo — Software Engineer" />
+     <meta name="twitter:description" content="Software Engineer and Architect focused on building scalable, resilient, and high-performance systems." />
+     <meta name="twitter:image" content="https://www.thiagodiogo.com/opengraph.jpg" />
+
+4. BOTÕES "RESUME" E "LET'S TALK" SEM FUNCIONALIDADE
+   ─ navbar.tsx: "Resume" e "Let's Talk" são <button> sem ação (desktop e mobile)
+   ─ Para SEO: se leva a outra página, usar <a href="">
+   ─ "Resume" deveria apontar para um PDF ou link de currículo
+   ─ "Let's Talk" deveria apontar para LinkedIn ou mailto:
+
+5. PROJETOS NÃO SÃO LINKS
+   ─ projects.tsx: Cards têm cursor-pointer e ícone ArrowUpRight mas são <div>
+   ─ Crawlers não seguem cliques em <div>
+   ─ Transformar em <a> apontando para detalhes/demo/github do projeto
+   ─ Ou remover cursor-pointer e ArrowUpRight se não houver destino
+
+6. STRUCTURED DATA (JSON-LD) AUSENTE
+   ─ Adicionar schema.org Person no index.html para Google:
+     {
+       "@context": "https://schema.org",
+       "@type": "Person",
+       "name": "Thiago Diogo",
+       "jobTitle": "Software Engineer",
+       "url": "https://www.thiagodiogo.com",
+       "sameAs": [
+         "https://www.linkedin.com/in/thiago-diogo/",
+         "https://github.com/eipastel"
+       ]
+     }
+   ─ Melhora Knowledge Graph e rich snippets
+
+
+================================================================================
+MELHORIAS DE MÉDIO IMPACTO
+================================================================================
+
+7. THEME-COLOR META TAG
+   ─ Adicionar: <meta name="theme-color" content="#0A0A0A" />
+   ─ Melhora aparência da barra do navegador mobile
+
+8. NOME PESSOAL NO TITLE
+   ─ Atual: "Software Engineer Portfolio"
+   ─ Melhor: "Thiago Diogo — Software Engineer"
+   ─ Nome no título ajuda a aparecer em buscas pelo nome
+
+9. DESCRIPTION MAIS ESPECÍFICA
+   ─ Atual: "Software Engineer and Architect focused on building scalable..."
+   ─ Melhor: "Thiago Diogo — Software Engineer especializado em sistemas
+     escaláveis com Java, Spring Boot, AWS e microserviços."
+   ─ Incluir nome + palavras-chave específicas da stack atual
+
+10. OG:IMAGE COM URL ABSOLUTA
+    ─ Atual: "/opengraph.jpg" (relativa)
+    ─ Melhor: "https://www.thiagodiogo.com/opengraph.jpg" (absoluta)
+    ─ Muitas plataformas ignoram URL relativa no og:image
+
+11. META ROBOTS
+    ─ Adicionar: <meta name="robots" content="index, follow" />
+    ─ Funciona sem (padrão é index,follow), mas é boa prática declarar
+
+
+================================================================================
+MELHORIAS DE ACESSIBILIDADE (impactam SEO indiretamente)
+================================================================================
+
+12. ÍCONES SOCIAIS SEM aria-label
+    ─ hero.tsx: Links de LinkedIn/GitHub sem aria-label
+    ─ Adicionar: aria-label="LinkedIn" / aria-label="GitHub"
+    ─ ArrowUpRight, ArrowRight: decorativos, adicionar aria-hidden="true"
+
+13. ELEMENTOS DECORATIVOS SEM aria-hidden
+    ─ "T" gigante no hero: adicionar aria-hidden="true"
+    ─ Bolinha separadora no footer: adicionar aria-hidden="true"
+    ─ Background do contact: já tem pointer-events-none ✅
+
+14. SKIP TO MAIN CONTENT
+    ─ Adicionar link oculto no topo: "Pular para conteúdo principal"
+    ─ Melhora acessibilidade e cumpre WCAG 2.1
+
+15. JOB CARDS COMO <article>
+    ─ Trocar <div> dos cards de experiência por <article>
+    ─ Semântica melhor para crawlers entenderem que é conteúdo independente
+
+16. TECH BADGES COMO LISTA
+    ─ Agrupar badges de tecnologia em <ul role="list"> com <li>
+    ─ Crawlers entendem como lista de habilidades
+
+17. TAP TARGETS EM MOBILE
+    ─ Links sociais no hero têm p-2.5 (mobile) = ~40px
+    ─ Ideal: pelo menos 44px (p-3) para WCAG compliance
+
+
+================================================================================
+PERFORMANCE (impacta SEO via Core Web Vitals)
+================================================================================
+
+18. LCP (LARGEST CONTENTFUL PAINT)
+    ─ h1 "BACKEND DRIVEN SOLUTIONS." anima com opacity: 0 → 1
+    ─ Pode atrasar o LCP. Considerar CSS animation ou remover do h1
+    ─ No mínimo, manter a transição < 500ms
+
+19. PRELOAD DA FONT
+    ─ Considerar: <link rel="preload" href="..." as="font" crossorigin>
+    ─ Reduz CLS (Cumulative Layout Shift)
+
+20. IMAGEM OG EM FORMATO MODERNO
+    ─ opengraph.jpg está OK para social sharing
+    ─ Para o site em si, considerar WebP/AVIF se adicionar imagens
+
+21. LAZY LOADING EM SEÇÕES ABAIXO DO FOLD
+    ─ framer-motion com whileInView já faz lazy animation ✅
+    ─ Se adicionar imagens, usar loading="lazy"
+
+22. HEADERS DE SEGURANÇA NO VERCEL.JSON
+    ─ Adicionar X-Content-Type-Options: nosniff
+    ─ Adicionar X-Frame-Options: DENY
+    ─ Adicionar Referrer-Policy: strict-origin-when-cross-origin
+    ─ Melhora confiança e score de segurança
+
+
+================================================================================
+CHECKLIST RÁPIDO DE ARQUIVOS PARA EDITAR
+================================================================================
+
+EDITAR:
+  [ ] index.html — canonical, meta robots, theme-color, twitter cards,
+      título com nome, og:url, og:image absoluto, JSON-LD, description
+  [ ] navbar.tsx — botões "Resume" e "Let's Talk" virar <a> com links reais
+  [ ] projects.tsx — cards virar <a> com links reais ou remover cursor-pointer
+  [ ] hero.tsx — aria-labels nos links sociais, aria-hidden no "T" decorativo
+  [ ] experience.tsx — cards usar <article>
+  [ ] footer.tsx — aria-hidden no separador
+  [ ] vercel.json — adicionar headers de segurança globais
+
+
+================================================================================
+ITENS JÁ RESOLVIDOS ✅ (desde a última auditoria)
+================================================================================
+
+  [x] Sitemap criado (public/sitemap.xml com URL real)
+  [x] robots.txt configurado com Host e Sitemap URL
+  [x] Redirect non-www → www no vercel.json (permanent)
+  [x] Links sociais com URLs reais no hero.tsx (LinkedIn + GitHub)
+  [x] Botão de contato como <a> com link para LinkedIn (contact.tsx)
+  [x] Página 404 refeita: mensagem amigável, link home, tema dark
+  [x] Nav mobile com hamburger menu implementada com aria-label
+  [x] Viewport sem maximum-scale (acessível, permite zoom)
+  [x] Sitemap.xml servido com Content-Type e Cache-Control corretos
+  [x] Cache headers de assets (immutable), favicon e opengraph configurados
