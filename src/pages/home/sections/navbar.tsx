@@ -3,7 +3,7 @@ import { ArrowUpRight, Menu, X, Mail, Linkedin, Github, Copy, Check, ExternalLin
 import { FaWhatsapp } from "react-icons/fa";
 import { useTranslation } from "react-i18next";
 
-const EMAIL = "gabrielfranca42@gmail.com";
+const EMAIL = "gabrielfranca172@gmail.com";
 
 export function openContactModal() {
   window.dispatchEvent(new CustomEvent("open-contact-modal"));

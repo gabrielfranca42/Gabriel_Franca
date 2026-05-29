@@ -34,7 +34,7 @@ export function Experience() {
         : [now.getFullYear(), now.getMonth() + 1];
       totalMonths += (ey - sy) * 12 + (em - sm);
     }
-    return Math.ceil(totalMonths / 12);
+    return Math.floor(totalMonths / 12);
   }
 
   function calcDuration(start: string, end: string | null): string {
