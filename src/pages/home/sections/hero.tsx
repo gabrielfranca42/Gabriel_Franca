@@ -1,3 +1,5 @@
+import { useEffect, useRef } from "react";
+import { animate } from "animejs";
 import { motion } from "framer-motion";
 import { Github, Linkedin, Boxes } from "lucide-react";
 import { SiSpringboot, SiMysql, SiPostgresql, SiApachekafka, SiRedis, SiDocker } from "react-icons/si";
@@ -27,6 +29,19 @@ function calcYearsOfExperience(jobs: Job[]): number {
 export function Hero() {
   const { t } = useTranslation(["hero", "data"]);
   const jobs = t("data:experience", { returnObjects: true }) as Job[];
+  const gRef = useRef<HTMLSpanElement>(null);
+
+  useEffect(() => {
+    if (gRef.current) {
+      animate(gRef.current, {
+        translateY: [-20, 20],
+        direction: 'alternate',
+        loop: true,
+        ease: 'inOutSine',
+        duration: 3000
+      });
+    }
+  }, []);
 
   return (
     <section id="about" className="relative pt-8 sm:pt-12 md:pt-24">
@@ -101,7 +116,7 @@ export function Hero() {
       </motion.div>
 
       <div className="absolute right-0 top-12 opacity-5 select-none pointer-events-none hidden lg:block">
-        <span className="text-[400px] font-bold leading-none font-serif tracking-tighter">G</span>
+        <span ref={gRef} className="text-[400px] font-bold leading-none font-serif tracking-tighter inline-block">G</span>
       </div>
     </section>
   );
