@@ -1,4 +1,5 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
+import { animate } from "animejs";
 import { ArrowUpRight, Menu, X, Mail, Linkedin, Github, Copy, Check, ExternalLink, Download } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
 import { useTranslation } from "react-i18next";
@@ -35,8 +36,29 @@ export function Navbar() {
   const [showContact, setShowContact] = useState(false);
   const [copied, setCopied] = useState(false);
   const { t, i18n } = useTranslation();
+  const modalRef = useRef<HTMLDivElement>(null);
 
   const resumeUrl = i18n.language.startsWith("pt") ? "/gabriel_cv_pt.pdf" : "/gabriel_cv_en.pdf";
+
+  useEffect(() => {
+    if (showContact && modalRef.current) {
+      animate(modalRef.current, {
+        scale: [0.8, 1],
+        opacity: [0, 1],
+        ease: 'outElastic(1, .6)',
+        duration: 800
+      });
+      
+      const links = modalRef.current.querySelectorAll('.contact-link');
+      animate(links, {
+        translateY: [20, 0],
+        opacity: [0, 1],
+        delay: (el: any, i = 0) => i * 100 + 150,
+        ease: 'outBack',
+        duration: 600
+      });
+    }
+  }, [showContact]);
 
   const closeContact = useCallback(() => {
     setShowContact(false);
@@ -157,7 +179,8 @@ export function Navbar() {
       >
         <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" />
         <div
-          className="relative w-full max-w-sm rounded-2xl border border-border bg-background p-6 shadow-2xl animate-in fade-in zoom-in-95 duration-200"
+          ref={modalRef}
+          className="relative w-full max-w-sm rounded-2xl border border-border bg-background p-6 shadow-2xl opacity-0"
           onClick={(e) => e.stopPropagation()}
         >
           <button
@@ -175,7 +198,7 @@ export function Navbar() {
             {t("contactModal.subtitle")}
           </p>
 
-          <div className="flex items-center gap-3 p-3 rounded-xl border border-border bg-card mb-4">
+          <div className="contact-link flex items-center gap-3 p-3 rounded-xl border border-border bg-card mb-4 opacity-0">
             <Mail className="w-5 h-5 text-red-400 shrink-0" />
             <span className="text-sm text-muted-foreground truncate flex-1">{EMAIL}</span>
             <button
@@ -201,7 +224,7 @@ export function Navbar() {
                 href={link.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`flex flex-col items-center gap-2 p-4 rounded-xl border border-border bg-card text-muted-foreground transition-all ${link.color}`}
+                className={`contact-link opacity-0 flex flex-col items-center gap-2 p-4 rounded-xl border border-border bg-card text-muted-foreground transition-all ${link.color}`}
               >
                 <link.icon className="w-5 h-5" />
                 <span className="text-xs font-medium">{t(`contactModal.${link.key}`)}</span>
