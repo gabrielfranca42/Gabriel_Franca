@@ -30,6 +30,9 @@ export function Hero() {
   const { t } = useTranslation(["hero", "data"]);
   const jobs = t("data:experience", { returnObjects: true }) as Job[];
   const gRef = useRef<HTMLSpanElement>(null);
+  const badgesRef = useRef<HTMLDivElement>(null);
+  const headingRef = useRef<HTMLHeadingElement>(null);
+  const gridRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (gRef.current) {
@@ -41,10 +44,51 @@ export function Hero() {
         duration: 3000
       });
     }
+
+    if (badgesRef.current) {
+      const badges = badgesRef.current.querySelectorAll('.anime-badge');
+      animate(badges, {
+        translateY: [20, 0],
+        opacity: [0, 1],
+        delay: (el: any, i = 0) => i * 100 + 400,
+        ease: 'outElastic(1, .6)',
+        duration: 1000
+      });
+    }
+
+    if (headingRef.current) {
+      const words = headingRef.current.querySelectorAll('.split-word');
+      animate(words, {
+        opacity: [0, 1],
+        translateY: [40, 0],
+        rotateZ: [5, 0],
+        delay: (el: any, i = 0) => i * 80 + 100,
+        ease: 'outQuint',
+        duration: 800
+      });
+    }
+
+    if (gridRef.current) {
+      const dots = gridRef.current.querySelectorAll('.grid-dot');
+      animate(dots, {
+        scale: [0, 1],
+        opacity: [0, 0.4],
+        delay: (el: any, i = 0) => i * 20,
+        ease: 'inOutSine',
+        duration: 1500
+      });
+    }
   }, []);
 
   return (
-    <section id="about" className="relative pt-8 sm:pt-12 md:pt-24">
+    <section id="about" className="relative pt-8 sm:pt-12 md:pt-24 overflow-hidden">
+      {/* Background Grid */}
+      <div ref={gridRef} className="absolute inset-0 z-0 overflow-hidden opacity-30 flex flex-wrap pointer-events-none justify-center items-center" style={{ gap: '3rem' }}>
+        {Array.from({ length: 100 }).map((_, i) => (
+          <div key={i} className="grid-dot w-2 h-2 rounded-full bg-primary/30 opacity-0" />
+        ))}
+      </div>
+
       <motion.div
         initial="hidden"
         animate="show"
@@ -62,12 +106,13 @@ export function Hero() {
         </motion.div>
 
         <motion.h1
+          ref={headingRef}
           variants={FADE_UP}
           className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter uppercase leading-[0.9] mb-6 sm:mb-8"
         >
-          {t("hero:heading1")}<br />
-          <span className="text-muted-foreground/60">{t("hero:heading2")}</span><br />
-          {t("hero:heading3")}
+          <SplitText text={t("hero:heading1") as string} /><br />
+          <span className="text-muted-foreground/60"><SplitText text={t("hero:heading2") as string} /></span><br />
+          <SplitText text={t("hero:heading3") as string} />
         </motion.h1>
 
         <motion.div variants={FADE_UP} className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-xl leading-relaxed mb-8 sm:mb-12">
@@ -88,15 +133,15 @@ export function Hero() {
             </a>
           </div>
           <div className="w-px h-8 bg-border hidden sm:block mx-2" />
-          <div className="flex flex-wrap items-center gap-2">
-            <TechBadge icon={<FaJava className="w-3.5 h-3.5 text-[#ED8B00]" />} label="Java" prime />
-            <TechBadge icon={<SiSpringboot className="w-3.5 h-3.5 text-[#6DB33F]" />} label="Spring Boot" prime />
-            <TechBadge icon={<SiMysql className="w-3.5 h-3.5 text-[#4479A1]" />} label="MySQL" />
+          <div ref={badgesRef} className="flex flex-wrap items-center gap-2">
+            <TechBadge animate icon={<FaJava className="w-3.5 h-3.5 text-[#ED8B00]" />} label="Java" prime />
+            <TechBadge animate icon={<SiSpringboot className="w-3.5 h-3.5 text-[#6DB33F]" />} label="Spring Boot" prime />
+            <TechBadge animate icon={<SiMysql className="w-3.5 h-3.5 text-[#4479A1]" />} label="MySQL" />
 
-            <TechBadge icon={<SiApachekafka className="w-3.5 h-3.5 text-[#231F20]" />} label="Kafka" />
+            <TechBadge animate icon={<SiApachekafka className="w-3.5 h-3.5 text-[#231F20]" />} label="Kafka" />
             <Tooltip>
               <TooltipTrigger asChild>
-                <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-border bg-card text-xs font-medium cursor-default hover:bg-muted transition-colors">
+                <div className="anime-badge opacity-0 flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-border bg-card text-xs font-medium cursor-default hover:bg-muted transition-colors">
                   {t("hero:more")}
                 </div>
               </TooltipTrigger>
@@ -122,14 +167,26 @@ export function Hero() {
   );
 }
 
-function TechBadge({ icon, label, prime }: { icon: React.ReactNode; label: string; prime?: boolean }) {
+function TechBadge({ icon, label, prime, animate }: { icon: React.ReactNode; label: string; prime?: boolean; animate?: boolean }) {
   return (
-    <div className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium ${
+    <div className={`${animate ? 'anime-badge opacity-0 ' : ''}flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium ${
       prime
         ? "border border-primary/40 bg-primary/10 text-foreground"
         : "border border-border bg-card"
     }`}>
       {icon} {label}
     </div>
+  );
+}
+
+function SplitText({ text }: { text: string }) {
+  return (
+    <>
+      {text.split(' ').map((word, i) => (
+        <span key={i} className="inline-block split-word opacity-0 mr-[0.25em]">
+          {word}
+        </span>
+      ))}
+    </>
   );
 }
