@@ -37,11 +37,10 @@ export function Hero() {
   useEffect(() => {
     if (gRef.current) {
       animate(gRef.current, {
-        translateY: [-20, 20],
-        direction: 'alternate',
+        translateY: [0, -20, 0, 20, 0],
         loop: true,
         ease: 'inOutSine',
-        duration: 3000
+        duration: 6000
       });
     }
 
@@ -69,13 +68,18 @@ export function Hero() {
     }
 
     if (gridRef.current) {
-      const dots = gridRef.current.querySelectorAll('.grid-dot');
-      animate(dots, {
-        scale: [0, 1],
-        opacity: [0, 0.4],
-        delay: (el: any, i = 0) => i * 20,
-        ease: 'inOutSine',
-        duration: 1500
+      const dots = Array.from(gridRef.current.querySelectorAll('.grid-dot'));
+      // Each dot gets its own infinite loop with a staggered delay offset
+      // so the wave repeats seamlessly with no visible restart
+      dots.forEach((dot, i) => {
+        animate(dot, {
+          scale: [0.4, 1.1, 0.4],
+          opacity: [0.05, 0.45, 0.05],
+          ease: 'inOutSine',
+          loop: true,
+          duration: 3000 + (i % 5) * 400,
+          delay: (i % 10) * 300
+        });
       });
     }
   }, []);
