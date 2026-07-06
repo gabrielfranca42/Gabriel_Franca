@@ -20,7 +20,7 @@ const CONTACT_LINKS = [
   {
     key: "linkedin",
     icon: Linkedin,
-    href: "https://www.linkedin.com/in/gabrielfranca42/",
+    href: "https://www.linkedin.com/in/gabriel-fran%C3%A7a-2190a1300/",
     color: "hover:bg-blue-500/10 hover:border-blue-500/30 hover:text-blue-400",
   },
   {
@@ -38,7 +38,7 @@ export function Navbar() {
   const { t, i18n } = useTranslation();
   const modalRef = useRef<HTMLDivElement>(null);
 
-  const resumeUrl = i18n.language.startsWith("pt") ? "/gabriel_cv_pt.pdf" : "/gabriel_cv_en.pdf";
+  const resumeUrl = import.meta.env.BASE_URL + "downloads/Gabriel_Franca_Curriculo_Oficial.doc";
 
   useEffect(() => {
     if (showContact && modalRef.current) {

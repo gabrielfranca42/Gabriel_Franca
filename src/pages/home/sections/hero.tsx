@@ -129,7 +129,7 @@ export function Hero() {
 
         <motion.div variants={FADE_UP} className="flex flex-wrap items-center gap-3 sm:gap-4">
           <div className="flex items-center gap-2">
-            <a href="https://www.linkedin.com/in/gabrielfranca42/" target="_blank" rel="noopener noreferrer" className="cursor-pointer p-2.5 sm:p-2 rounded-full border border-border hover:bg-muted transition-colors text-muted-foreground hover:text-foreground">
+            <a href="https://www.linkedin.com/in/gabriel-fran%C3%A7a-2190a1300/" target="_blank" rel="noopener noreferrer" className="cursor-pointer p-2.5 sm:p-2 rounded-full border border-border hover:bg-muted transition-colors text-muted-foreground hover:text-foreground">
               <Linkedin className="w-5 h-5" />
             </a>
             <a href="https://github.com/gabrielfranca42" target="_blank" rel="noopener noreferrer" className="cursor-pointer p-2.5 sm:p-2 rounded-full border border-border hover:bg-muted transition-colors text-muted-foreground hover:text-foreground">
