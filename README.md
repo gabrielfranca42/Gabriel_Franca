@@ -1,8 +1,4 @@
-# thiagodiogo.com
 
-Personal portfolio website for **Thiago Diogo** — Software Engineer specializing in scalable backend systems, distributed architectures, and high-performance solutions.
-
-**Live:** [www.thiagodiogo.com](https://www.thiagodiogo.com)
 
 ---
 
